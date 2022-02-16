@@ -17,12 +17,11 @@ const initialContainerBackgroundClassNames = [
 ]
 
 // Write your code here
-const initialCommentsList = []
 
 class Comments extends Component {
   state = {
-    commentsList: initialCommentsList,
-    commentsCount: 0,
+    commentsList: [],
+    count: 0,
     name: '',
     comment: '',
   }
@@ -45,14 +44,14 @@ class Comments extends Component {
     }
     this.setState(prevState => ({
       commentsList: [...prevState.commentsList, commentItem],
-      commentsCount: prevState.commentsCount + 1,
+      count: prevState.count + 1,
       name: '',
       comment: '',
     }))
   }
 
   render() {
-    const {commentsList, commentsCount, name, comment} = this.state
+    const {commentsList, count, name, comment} = this.state
     return (
       <div>
         <h1>Comments</h1>
@@ -85,7 +84,7 @@ class Comments extends Component {
         <hr />
         <div>
           <p>
-            <span>{commentsCount}</span> Comments
+            <span>{count}</span> Comments
           </p>
           <ul>
             {commentsList.map(eachCommentItem => (
